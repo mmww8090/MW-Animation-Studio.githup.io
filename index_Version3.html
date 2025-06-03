@@ -1,80 +1,263 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MW Animation Studio</title>
-  <link rel="stylesheet" href="sidebar.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #121212;
+      color: #fff;
+      animation: fadeIn 1.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    header {
+      background: #1f1f1f;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+      animation: slideDown 1s ease;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #2c2c2c;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      flex-wrap: wrap;
+      animation: fadeIn 2s ease;
+    }
+    nav a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background: #444;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 2s ease;
+    }
+    h2 {
+      color: #ffcc00;
+      border-bottom: 2px solid #ffcc00;
+      padding-bottom: 10px;
+    }
+    .hidden {
+      display: none;
+    }
+    .admin-btn, .admin-menu button {
+      background: #ffcc00;
+      color: #000;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    .admin-menu {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #1f1f1f;
+      padding: 20px;
+      border: 2px solid #ffcc00;
+      border-radius: 10px;
+      z-index: 999;
+    }
+    .manga-files p {
+      margin: 10px 0;
+      padding: 10px;
+      background: #1e1e1e;
+      border-left: 4px solid #ffcc00;
+    }
+    .manga-files a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+    input[type="file"] {
+      margin-top: 10px;
+      color: white;
+    }
+    .floating-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+  </style>
 </head>
 <body>
-  <!-- الشريط الجانبي الاحترافي -->
-  <nav class="sidebar" id="sidebar">
-    <div class="logo">
-      <img src="logo-mw-animation-studio.svg" alt="شعار MW Animation Studio">
-      <span>MW Animation Studio</span>
-    </div>
-    <button class="menu-btn" id="menuBtn" title="فتح القائمة">
-      &#9776;
-    </button>
-    <div class="nav-links">
-      <button class="nav-link active">
-        <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9-1.5 1.5L12 5.5 4.5 13.5z"/><path d="M4 10v10h16V10"/></svg>
-        <span class="nav-text">الرئيسية</span>
-      </button>
-      <button class="nav-link">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
-        <span class="nav-text">الأعمال</span>
-      </button>
-      <button class="nav-link">
-        <svg viewBox="0 0 24 24"><path d="M2 21l21-9-21-9v9l13 0"/></svg>
-        <span class="nav-text">تواصل</span>
-      </button>
-      <button class="nav-link" onclick="showAdminLogin()">
-        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 4a2 2 0 110 4 2 2 0 010-4zm0 14c-2.67 0-8 1.34-8-2V16c0-2.67 5.33-4 8-4s8 1.33 8 4v2c0 3.34-5.33 2-8 2z"/></svg>
-        <span class="nav-text">المالك</span>
-      </button>
-    </div>
+  <header>
+    <h1>MW Animation Studio</h1>
+    <p>We bring your imagination to life.</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#team">Team</a>
+    <a href="#contact">Contact</a>
+    <a href="#blog">Blog</a>
+    <a href="#manga">Manga</a>
+    <a href="#upload">Upload</a>
   </nav>
 
-  <!-- محتوى الموقع الرئيسي -->
-  <main style="margin-left:76px; padding:32px;">
-    <h1>مرحبًا بك في MW Animation Studio</h1>
-    <p>هنا يمكنك استعراض أعمالنا، نشر مانغا جديدة، ومتابعة أحدث منشورات الاستديو.</p>
-  </main>
+  <section id="home">
+    <h2>Welcome to MW Animation Studio</h2>
+    <p>Where creativity meets technology.</p>
+  </section>
 
-  <!-- نافذة تسجيل دخول المالك -->
-  <div id="admin-login-modal" style="display:none;position:fixed;left:50%;top:20%;transform:translateX(-50%);background:#23243a;padding:30px 22px;border-radius:16px;z-index:2000;border:1.5px solid #2dc7ff67;box-shadow:0 12px 60px #2dc7ff22;">
-    <h3>تسجيل دخول المالك</h3>
-    <input id="admin-username" placeholder="اسم المستخدم" style="display:block;margin-bottom:12px;padding:8px 12px;border-radius:8px;border:1px solid #2dc7ff44;" />
-    <input id="admin-password" type="password" placeholder="كلمة المرور" style="display:block;margin-bottom:14px;padding:8px 12px;border-radius:8px;border:1px solid #2dc7ff44;" />
-    <button onclick="adminLogin()" style="background:#2dc7ff;color:#23243a;padding:8px 36px;border:none;border-radius:8px;font-weight:bold;">دخول</button>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We are a passionate animation studio creating engaging and powerful animated stories. Our vision is to inspire the world through animation.</p>
+  </section>
+
+  <section id="portfolio">
+    <h2>Our Work</h2>
+    <div id="project-list">
+      <p>No projects added yet.</p>
+    </div>
+  </section>
+
+  <section id="team">
+    <h2>Meet the Team</h2>
+    <p>Creative minds behind the magic.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: contact@mwanimation.com</p>
+    <p>Instagram: @mw.animation</p>
+  </section>
+
+  <section id="blog">
+    <h2>Latest News</h2>
+    <p>Stay tuned for our latest projects and updates.</p>
+  </section>
+
+  <section id="manga">
+    <h2>Our Manga</h2>
+    <div class="manga-files" id="manga-list">
+      <p>No manga files uploaded yet.</p>
+    </div>
+  </section>
+
+  <section id="upload" class="hidden">
+    <h2>Upload Manga (Admin Only)</h2>
+    <input type="file" id="adminUploadManga" accept=".pdf,.jpg,.png,.jpeg" multiple />
+  </section>
+
+  <div class="admin-menu hidden" id="adminMenu">
+    <h3>Admin Panel</h3>
+    <button onclick="addProject()">Add New Project</button>
+    <button onclick="clearProjects()">Clear All Projects</button>
+    <button onclick="addManga()">Add Manga File</button>
+    <button onclick="clearManga()">Clear Manga List</button>
   </div>
 
+  <button class="floating-btn hidden" id="adminToggleBtn" title="Admin" onclick="toggleAdminMenu()">⚙</button>
+
   <script>
-    // التحكم في توسيع وتصغير الشريط الجانبي
-    const sidebar = document.getElementById('sidebar');
-    const menuBtn = document.getElementById('menuBtn');
-    menuBtn.onclick = () => sidebar.classList.toggle('expanded');
-    // إظهار نافذة المالك
-    function showAdminLogin() {
-      document.getElementById('admin-login-modal').style.display = 'block';
-    }
-    // إخفاء نافذة المالك عند الضغط خارجها
-    window.onclick = function(event) {
-      const modal = document.getElementById('admin-login-modal');
-      if(event.target === modal) modal.style.display = 'none';
-    }
-    // تسجيل دخول المالك (مثال)
-    function adminLogin() {
-      const username = document.getElementById('admin-username').value;
-      const password = document.getElementById('admin-password').value;
-      if(username === "admin" && password === "your_password") {
-        alert('تم تسجيل الدخول بنجاح');
-        document.getElementById('admin-login-modal').style.display = 'none';
+    let isAdmin = false;
+
+    function toggleAdminMenu() {
+      if (!isAdmin) {
+        const password = prompt("Enter admin password:");
+        if (password === "mwadmin") {
+          isAdmin = true;
+          document.getElementById("adminMenu").classList.remove("hidden");
+          document.getElementById("upload").classList.remove("hidden");
+          document.getElementById("adminToggleBtn").classList.remove("hidden");
+          alert("Admin mode activated.");
+        } else {
+          alert("Incorrect password.");
+        }
       } else {
-        alert('اسم المستخدم أو كلمة المرور خاطئة');
+        document.getElementById("adminMenu").classList.toggle("hidden");
       }
     }
+
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "F8") {
+        toggleAdminMenu();
+      }
+    });
+
+    function addProject() {
+      const title = prompt("Enter project title:");
+      if (title) {
+        const projectDiv = document.createElement("div");
+        projectDiv.innerHTML = `<p><strong>${title}</strong></p>`;
+        document.getElementById("project-list").appendChild(projectDiv);
+      }
+    }
+
+    function clearProjects() {
+      if (confirm("Are you sure you want to delete all projects?")) {
+        document.getElementById("project-list").innerHTML = "<p>No projects added yet.</p>";
+      }
+    }
+
+    function addManga() {
+      const fileName = prompt("Enter manga file name:");
+      const fileLink = prompt("Enter file URL:");
+      if (fileName && fileLink) {
+        const mangaDiv = document.createElement("div");
+        mangaDiv.innerHTML = `<p><a href="${fileLink}" target="_blank">${fileName}</a></p>`;
+        document.getElementById("manga-list").appendChild(mangaDiv);
+      }
+    }
+
+    function clearManga() {
+      if (confirm("Delete all manga files?")) {
+        document.getElementById("manga-list").innerHTML = "<p>No manga files uploaded yet.</p>";
+      }
+    }
+
+    document.getElementById("adminUploadManga").addEventListener("change", function(e) {
+      const files = e.target.files;
+      const mangaList = document.getElementById("manga-list");
+      for (const file of files) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          const p = document.createElement("p");
+          const a = document.createElement("a");
+          a.href = evt.target.result;
+          a.textContent = file.name;
+          a.target = "_blank";
+          p.appendChild(a);
+          mangaList.appendChild(p);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
   </script>
 </body>
 </html>
