@@ -1,0 +1,16 @@
+<svg width="320" height="320" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="160" cy="160" r="155" fill="#212436" stroke="#EEE" stroke-width="8"/>
+  <!-- شعر أسود -->
+  <ellipse cx="160" cy="100" rx="44" ry="38" fill="#1a1a1a"/>
+  <!-- وجه الشخصية -->
+  <ellipse cx="160" cy="140" rx="32" ry="32" fill="#f2d8c5"/>
+  <!-- جسم الشخصية مع الكتاب -->
+  <rect x="130" y="170" width="60" height="50" rx="16" fill="#48426d"/>
+  <rect x="150" y="200" width="40" height="28" rx="4" fill="#fff8e3" stroke="#bca260" stroke-width="3"/>
+  <!-- يد تمسك الكتاب -->
+  <ellipse cx="184" cy="218" rx="9" ry="7" fill="#f2d8c5"/>
+  <!-- ريشة رسم -->
+  <rect x="110" y="200" width="10" height="44" rx="3" fill="#cfcfcf" transform="rotate(-30 110 200)"/>
+  <ellipse cx="107" cy="237" rx="6" ry="13" fill="#ececec" transform="rotate(-30 107 237)"/>
+  <text x="50%" y="295" text-anchor="middle" font-size="28" font-family="Arial Black, Arial, sans-serif" fill="#fff" letter-spacing="1.5">MW Animation Studio</text>
+</svg>

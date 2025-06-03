@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@700&display=swap');
+
+body {
+  background: linear-gradient(135deg, #14151d 0%, #23243a 100%);
+  color: #fff;
+  font-family: 'Tajawal', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* الشريط الجانبي */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 76px;
+  height: 100vh;
+  background: rgba(36,38,58,0.98);
+  border-right: 2px solid #2dc7ff44;
+  box-shadow: 2px 0 24px #2dc7ff22;
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: width 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+  z-index: 1001;
+}
+.sidebar.expanded {
+  width: 230px;
+}
+.sidebar .logo {
+  margin-bottom: 36px;
+  transition: margin 0.3s;
+}
+.sidebar .logo img {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px #2dc7ff44;
+}
+.sidebar .logo span {
+  display: none;
+  color: #2dc7ff;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 8px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px #2dc7ff33;
+}
+.sidebar.expanded .logo span {
+  display: block;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  color: #2dc7ff;
+  margin-bottom: 44px;
+  cursor: pointer;
+  font-size: 2.2rem;
+  transition: transform 0.2s;
+}
+.menu-btn:hover {
+  transform: scale(1.2) rotate(-8deg);
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+  align-items: center;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.13rem;
+  cursor: pointer;
+  gap: 18px;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin: 2px 0;
+  text-align: right;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+  position: relative;
+}
+.nav-link svg {
+  min-width: 28px;
+  min-height: 28px;
+  fill: #2dc7ff;
+  transition: filter 0.3s, transform 0.3s;
+}
+.nav-link .nav-text {
+  display: none;
+  white-space: nowrap;
+}
+.sidebar.expanded .nav-link .nav-text {
+  display: inline;
+}
+
+.nav-link:hover, .nav-link.active {
+  background: linear-gradient(90deg, #2dc7ff33 0%, #23243a 100%);
+  color: #2dc7ff;
+  transform: translateX(6px) scale(1.05);
+}
+.nav-link:hover svg, .nav-link.active svg {
+  filter: drop-shadow(0 0 8px #2dc7ffcc) brightness(1.4);
+  transform: scale(1.15) rotate(-6deg);
+}
+
+@media (max-width: 800px) {
+  .sidebar { width: 54px; }
+  .sidebar.expanded { width: 170px; }
+  .sidebar .logo img { width: 40px; height: 40px;}
+}
